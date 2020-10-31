@@ -30,9 +30,6 @@ public class Card implements Serializable {
 	@OneToOne
 	private CardType cardType;
 	
-	@OneToOne
-	private User user;
-	
 	public Card() {}
 
 	public int getId() {
@@ -73,14 +70,6 @@ public class Card implements Serializable {
 
 	public void setCardType(CardType cardType) {
 		this.cardType = cardType;
-	}
-
-	public User getUser() {
-		return user;
-	}
-
-	public void setUser(User user) {
-		this.user = user;
 	}
 	
 }

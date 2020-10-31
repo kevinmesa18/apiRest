@@ -47,6 +47,23 @@ public class UserController {
 		}
 	}
 	
+	@PostMapping("register")
+	public String register(@RequestParam("email") String email, @RequestParam("password") String password, @RequestParam("phone") String phone, @RequestParam("name") String name) {
+		User user = new User();
+		user.setId(1);
+		user.setEmail(email);
+		user.setPassword(password);
+		user.setPhone(phone);
+		user.setName(name);
+		User userSave = new User();
+		userSave = userService.saveUser(user);		
+		if (userSave == null) {
+			return "Registration failed";
+		} else {
+			return "Login in endpoint /login";			
+		}
+	}
+	
 	private String getJWTToken(String email) {
 		String secretKey = "mySecretKey";
 		List<GrantedAuthority> grantedAuthorities = AuthorityUtils.commaSeparatedStringToAuthorityList("ROLE_USER");
