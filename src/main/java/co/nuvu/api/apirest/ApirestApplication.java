@@ -26,6 +26,7 @@ public class ApirestApplication {
 				.addFilterAfter(new JWTAuthorizationFilter(), UsernamePasswordAuthenticationFilter.class)
 				.authorizeRequests()
 				.antMatchers(HttpMethod.POST, "/login").permitAll()
+				.antMatchers(HttpMethod.POST, "/register").permitAll()
 				.anyRequest().authenticated();
 		}
 	}
